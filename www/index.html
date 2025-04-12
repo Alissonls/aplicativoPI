@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
     <!-- Color theme for statusbar (Android only) -->
     <meta name="theme-color" content="#2196f3">
     <!-- Your app title -->
@@ -28,7 +28,19 @@
     <div id="app">
 
         <!-- Your main view, should have "view-main" class -->
+       
+        <!--Botão acessivel SVG-->
         <div class="view view-main">
+          <svg style="position: absolute; height: 0; width: 0;">
+            <filter id="protanopia">
+                <feColorMatrix type="matrix"
+                    values="0.567, 0.433, 0, 0, 0
+                            0.558, 0.442, 0, 0, 0
+                            0, 0.242, 0.758, 0, 0
+                            0, 0, 0, 1, 0">
+                </feColorMatrix>
+            </filter>
+        </svg>
 
 
             <!-- TAB BAR-->
@@ -52,6 +64,45 @@
                     </a>
                 </div>
             </div>
+            <!-- Botões de Acessibilidade -->
+<div class="acessibilidade-container">
+  <a href="#" class="botao-acessibilidade" id="aumentarFonte">
+      A<span class="plus">+</span>
+  </a>
+  <a href="#" class="botao-acessibilidade" id="modoDaltonico">
+      <i class="mdi mdi-eye-outline"></i>
+  </a>
+</div>
+<script>
+  // Controle do Tamanho da Fonte
+  let currentFontSize = 0;
+  const maxFontSize = 3;
+
+  document.getElementById('aumentarFonte').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      if(currentFontSize < maxFontSize) {
+          currentFontSize++;
+          document.body.classList.add(`fonte-grande-${currentFontSize}`);
+          // Remove classes anteriores
+          for(let i = currentFontSize - 1; i > 0; i--) {
+              document.body.classList.remove(`fonte-grande-${i}`);
+          }
+      } else {
+          // Reset para tamanho normal
+          currentFontSize = 0;
+          document.body.className = document.body.className.replace(/fonte-grande-\d/g, '');
+      }
+  });
+
+  // Controle do Modo Daltonico
+  document.getElementById('modoDaltonico').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.body.classList.toggle('daltonico-mode');
+      this.querySelector('i').classList.toggle('mdi-eye-outline');
+      this.querySelector('i').classList.toggle('mdi-eye-off-outline');
+  });
+</script>
 
             <!-- Initial Page, "data-name" contains page name -->
             <div data-name="index" class="page color-theme-green">
@@ -74,7 +125,7 @@
                 </form>
   <!-- Scrollable page content -->
                 <div class="page-content">
-                    <div class="block not-margin-top">
+                    <div class="block not-margin-top">                    <link rel="icon" href="data:,">                    <meta name="apple-mobile-web-app-capable" content="yes">                    <meta name="mobile-web-app-capable" content="yes">                    <meta name="mobile-web-app-capable" content="yes">
                  <!-- Swiper -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
@@ -251,6 +302,36 @@
             </div>
         </div>
     </div>
+    <script>
+      // Controle do Tamanho da Fonte
+      let currentFontSize = 0;
+      const maxFontSize = 3;
+  
+      document.getElementById('aumentarFonte').addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          if(currentFontSize < maxFontSize) {
+              currentFontSize++;
+              document.body.classList.add(`fonte-grande-${currentFontSize}`);
+              // Remove classes anteriores
+              for(let i = currentFontSize - 1; i > 0; i--) {
+                  document.body.classList.remove(`fonte-grande-${i}`);
+              }
+          } else {
+              // Reset para tamanho normal
+              currentFontSize = 0;
+              document.body.className = document.body.className.replace(/fonte-grande-\d/g, '');
+          }
+      });
+  
+      // Controle do Modo Daltonico
+      document.getElementById('modoDaltonico').addEventListener('click', function(e) {
+          e.preventDefault();
+          document.body.classList.toggle('daltonico-mode');
+          this.querySelector('i').classList.toggle('mdi-eye-outline');
+          this.querySelector('i').classList.toggle('mdi-eye-off-outline');
+      });
+  </script>
 
 
 

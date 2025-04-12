@@ -19,5 +19,8 @@
     "platforms": [
       "android"
     ]
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.11.3"
   }
 }

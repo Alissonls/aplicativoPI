@@ -258,8 +258,43 @@ form{
        flex: 20%;
     }
 }
+ /* Acessibilidade */
+.acessibilidade-container {
+    position: fixed;
+    bottom: 80px;
+    right: 15px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
+.botao-acessibilidade {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #2196f3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    transition: all 0.3s;
+    text-decoration: none;
+}
 
-    
+.botao-acessibilidade:hover {
+    transform: scale(1.1);
+    background: #1976d2;
+}
 
+/* Modo Daltonico */
+.daltonico-mode {
+    filter: url(#protanopia);
+    -webkit-filter: url(#protanopia);
+}
 
+/* Tamanho da Fonte */
+.fonte-grande-1 { font-size: 1.2rem; }
+.fonte-grande-2 { font-size: 1.4rem; }
+.fonte-grande-3 { font-size: 1.6rem; }
